@@ -1,0 +1,32 @@
+/*
+  $Id$
+
+  osCommerce, Open Source E-Commerce Solutions
+  http://www.oscommerce.com
+
+  Copyright (c) 2015 osCommerce
+
+  Author: Cluster Solutions
+
+  Released under the GNU General Public License
+*/
+
+
+I. 	Copy over the catalog folder (yours may or may not use the catalog folder), namely these 2 files:
+
+	1. catalog/includes/modules/header_tags/ht_price_display.php
+	2. catalog/includes/languages/english/modules/header_tags/ht_price_display.php
+
+II. 	In admin/modules.php, add this line... 
+
+		require(DIR_FS_CATALOG . DIR_WS_CLASSES . 'currencies.php');
+
+    	immediately after this line on the top of the file.
+    
+  		require('includes/application_top.php');
+
+III. 	Go to Modules->Header Tags to install and active the price display for members only module.
+
+
+***Note:
+This must uses the currencies class from the catalog and not from admin. This needs to be looked at... 
