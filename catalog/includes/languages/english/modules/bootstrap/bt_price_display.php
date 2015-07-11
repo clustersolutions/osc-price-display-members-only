@@ -12,6 +12,6 @@
   Released under the GNU General Public License
 */
 
-  define('MODULE_HEADER_TAGS_PRICE_DISPLAY_TITLE', 'Price Display Control');
-  define('MODULE_HEADER_TAGS_PRICE_DISPLAY_DESCRIPTION', 'Control price display for members only.');
+  define('MODULE_BOOTSTRAP_PRICE_DISPLAY_TITLE', 'Price Display Control');
+  define('MODULE_BOOTSTRAP_PRICE_DISPLAY_DESCRIPTION', 'Control price display for members only.');
 ?>
