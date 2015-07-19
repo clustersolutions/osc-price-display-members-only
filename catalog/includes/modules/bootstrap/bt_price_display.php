@@ -70,6 +70,25 @@
           return '<div class="remove"></div>';
         }
       }
+
+      function format($number, $calculate_currency_value = true, $currency_type = '', $currency_value = '') {
+        global $currency, $customer_id;
+
+        if (empty($currency_type)) $currency_type = $currency;
+
+        if ($calculate_currency_value == true) {
+          $rate = (tep_not_null($currency_value)) ? $currency_value : $this->currencies[$currency_type]['value'];
+          $format_string = $this->currencies[$currency_type]['symbol_left'] . number_format(tep_round($number * $rate, $this->currencies[$currency_type]['decimal_places']), $this->currencies[$currency_type]['decimal_places'], $this->currencies[$currency_type]['decimal_point'], $this->currencies[$currency_type]['thousands_point']) . $this->currencies[$currency_type]['symbol_right'];
+        } else {
+          $format_string = $this->currencies[$currency_type]['symbol_left'] . number_format(tep_round($number, $this->currencies[$currency_type]['decimal_places']), $this->currencies[$currency_type]['decimal_places'], $this->currencies[$currency_type]['decimal_point'], $this->currencies[$currency_type]['thousands_point']) . $this->currencies[$currency_type]['symbol_right'];
+        }
+
+        if (tep_session_is_registered('customer_id')) {
+          return $format_string;
+        } else {
+          return '<div class="remove"></div>';
+        }
+      }
     }
   }
 
